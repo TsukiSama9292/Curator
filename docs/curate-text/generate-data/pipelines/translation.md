@@ -59,7 +59,7 @@ generator = TranslationDataGenerator(
     reflection_model="gpt-oss:latest",                      # Reflection model for improvement
     improvement_model="gpt-oss:latest",                     # Model for translation improvement
     hf_tokenizer="openai/gpt-oss-20b" ,                     # (Change this) HuggingFace model for tokenization
-    hf_token="",                                            # (Change this) HuggingFace authentication token
+    hf_token=None,                                            # (Change this) HuggingFace authentication token
     temperature=1.0,                                        # Sampling temperature for generation
     top_p=1.0,                                              # Nucleus sampling parameter
     max_tokens=8192,                                        # Maximum tokens for input
@@ -176,10 +176,10 @@ from pydantic.v1 import BaseSettings
 
 # (Optional) Define a Settings class to store model and API configuration
 class Settings(BaseSettings):
-    hf_token: str = ""                          # (Change this) HuggingFace token for authentication
-    hf_model: str = "openai/gpt-oss-20b"     # (Change this) HuggingFace model for tokenization
-    model_name: str = "gpt-oss:latest"       # (Change this) Local model name
-    base_url: str = "http://localhost:11434/v1" # (Change this) Base URL for local API (P.S: Ollama supports the OpenAI API format.)
+    hf_token: str = None                            # (Change this) HuggingFace token for authentication
+    hf_model: str = "openai/gpt-oss-20b"            # (Change this) HuggingFace model for tokenization
+    model_name: str = "gpt-oss:latest"              # (Change this) Local model name
+    base_url: str = "http://localhost:11434/v1"     # (Change this) Base URL for local API (P.S: Ollama supports the OpenAI API format.)
 
 # Instantiate the Settings object to access configuration
 setting = Settings()
